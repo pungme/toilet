@@ -16,7 +16,7 @@
 			<!-- Input Form -->
 			<form class="form-inline">
 			  <label> What's on your mind ? :</label> 
-			  <input type="text" class="form-control"  ng-model="data.inputText"> 
+			  <input type="text" maxlength="120" class="form-control"  ng-model="data.inputText"> 
 			  <button type="button" class="btn btn-danger" ng-click="saveText()">Save</button>
               <b class="display-text" drag-me>{{ data.inputText }}</b>
 			</form>
