@@ -16,3 +16,10 @@ body {
 }
 /* input { width: 250px; }
 input:focus { width: 350px; } */
+
+
+.display-text {
+    font-size: 18px;
+    margin-left: 6px;
+    cursor:pointer;
+}

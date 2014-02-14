@@ -29,7 +29,7 @@ toiletApp.directive('dragMe', function() {
 	return {
 		restrict: 'A',
 		link: function(scope, elem, attr, ctrl) {
-			elem.draggable();
+			elem.draggable(); // a call to JQueryUI 
 		}
 	};
 });
