@@ -22,17 +22,13 @@
 			</form>
 			
 		<table class="table table-hover">
-			<tr>
-				<td ng-repeat="text in data"> 
-					{{text.text}}
-				</td>
+			<tr ng-repeat="text in data">
+				<td> {{text.text}} </td>
+				<td> {{text.font}} </td>
+				<td> {{text.color}} </td>
+				<td> {{text.size}} </td>
 			</tr>
 		
-			<tr>
-				<td ng-repeat="text in data">
-					{{text.font}}
-				</td>
-			</tr>
 		</table>
     </div>
   </body>

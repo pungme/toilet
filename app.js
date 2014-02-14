@@ -12,7 +12,14 @@ toiletApp.controller("toiletController", function($scope) {
 	];
 	
 	$scope.saveText = function(){
-		console.log("test");
+		//define data as an object 
+		var data = {
+			text : $scope.data.inputText, 
+			font : "Helvetica", 
+			color :"#FFFFFF", 
+			size : 13
+		}	
+		$scope.data.push(data);
 	}
 	
 });

@@ -8,7 +8,7 @@ body {
     }	
 }
 
-/*Do the responsive stuffh*/
+/*Do the responsive stuff*/
 @media (min-width: 768px) { 
 	.form-inline .form-control {
 		 width: 250px; 
