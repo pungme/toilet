@@ -4,7 +4,7 @@ body {
   
 @media (max-width: 980px) {
   body {
-      padding-top: 0;
+      padding: 6 6 6 6;
     }	
 }
 

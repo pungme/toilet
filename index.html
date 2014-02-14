@@ -1,14 +1,14 @@
 
 <html ng-app="toiletApp">
   <head>
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="theme.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>      
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 	<script src="app.js" > </script>
-	
 	
   </head>
   <body>
@@ -18,9 +18,9 @@
 			  <label> What's on your mind ? :</label> 
 			  <input type="text" class="form-control"  ng-model="data.inputText"> 
 			  <button type="button" class="btn btn-danger" ng-click="saveText()">Save</button>
-			  {{ data.inputText }}
+              <h1 drag-me>{{ data.inputText }}</h1>
 			</form>
-			
+        
 		<table class="table table-hover">
 			<tr ng-repeat="text in data">
 				<td> {{text.text}} </td>
