@@ -7,3 +7,6 @@ body {
       padding-top: 0;
     }	
 }
+
+input { width: 250px; }
+input:focus { width: 350px; }

@@ -11,4 +11,8 @@ toiletApp.controller("toiletController", function($scope) {
 		{text: "This toilet is worth reading than Twilight", font : "Helvetica", color :"#FFFFFF", size : 13}
 	];
 	
+	$scope.saveText = function(){
+		console.log("test");
+	}
+	
 });
