@@ -8,5 +8,11 @@ body {
     }	
 }
 
-input { width: 250px; }
-input:focus { width: 350px; }
+/*Do the responsive stuffh*/
+@media (min-width: 768px) { 
+	.form-inline .form-control {
+		 width: 250px; 
+	}
+}
+/* input { width: 250px; }
+input:focus { width: 350px; } */
