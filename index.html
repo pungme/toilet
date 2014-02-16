@@ -7,6 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>      
     <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular-animate.js"></script>
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 	<script src="app.js" > </script>
 	
@@ -17,7 +18,7 @@
 			<form class="form-inline">
 			     <label> What's on your mind ? :</label> 
 			     <input type="text" maxlength="120" class="form-control"  ng-model="data.inputText"> 
-			     <button type="button" class="btn btn-danger" ng-click="saveText()">Save</button>
+			     <button type="button" class="btn btn-danger" ng-click="saveText()">Add</button>
                  <b class="display-text" drag-me xpos="positionx" ypos="positiony">{{ data.inputText }}</b>
                  <label class="pull-right">position : 
                  <b>{{positionx + "," + positiony }}</b>
@@ -27,7 +28,7 @@
 		<table class="table table-hover">
 			<tr ng-repeat="text in data">
 				<td> {{text.text}} </td>
-				<td> {{text.font}} </td>
+				<td> {{text.fonttype}} </td>
 				<td> {{text.color}} </td>
 				<td> {{text.size}} </td>
 			</tr>
