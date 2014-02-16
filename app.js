@@ -35,6 +35,12 @@ toiletApp.controller("toiletController", function($scope,$http) {
 		$scope.data.push(data);
         //console.log($scope.data);
 	}
+    
+//    $scope.updatePosition = function(event, ui){
+//        $scope.positionx = ui.position.left;
+//        $scope.positiony = ui.position.top;
+//        $scope.$apply();
+//    }
 
 });
 
@@ -42,18 +48,23 @@ toiletApp.controller("toiletController", function($scope,$http) {
 toiletApp.directive('dragMe', function() {
 	return {
 		restrict: 'A',
+        
+        //Should directive has their own controller ? 
+        controller: ['$scope', '$http', function($scope, $http) {
+            $scope.updatePosition = function(event, ui) {
+              $scope.positionx = ui.position.left;
+              $scope.positiony = ui.position.top;
+              $scope.$apply();
+            }
+        }],
+        
 		link: function(scope, elem, attr, ctrl) {
 			elem.draggable({
-                create: function( event, ui ) {
-                    //duplication ? 
-                    scope[attr.xpos] = ui.position.left;
-                    scope[attr.ypos] = ui.position.top;
-                    scope.$apply();
+                drag: function( event, ui ) {
+                    scope.updatePosition(event, ui); 
                 },
                 stop: function (event, ui) {
-                    scope[attr.xpos] = ui.position.left;
-                    scope[attr.ypos] = ui.position.top;
-                    scope.$apply();
+                    scope.updatePosition(event, ui);
                 }
             }); // a call to JQueryUI 
 		}
