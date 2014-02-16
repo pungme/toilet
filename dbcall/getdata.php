@@ -1,12 +1,10 @@
 <?php
 
-	mysql_connect("localhost", "root", "") or
-	die("Could not connect: " . mysql_error());
-	mysql_select_db("toilet");
-
-	getList();
+	require_once('get_db_connection.php');
+    mysql_query("SET NAMES UTF8");
+	getData();
   
-	function getList() {
+	function getData() {
 		$query = "SELECT * FROM walltext";
 		$result = mysql_query($query);
 		$nbrows = mysql_num_rows($result);	

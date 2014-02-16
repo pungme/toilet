@@ -6,19 +6,38 @@ toiletApp.controller("toiletController", function($scope,$http) {
 
     var init = function(){ //get data from server
         //init component
-        //console.log("init data");
-        $http({method: 'GET', url: 'getdata.php'}).
+        $http({method: 'GET', url: 'dbcall/getdata.php'}).
           success(function(data, status, headers, config) {
               $scope.data = data;
-            // this callback will be called asynchronously
-            // when the response is available
           }).
           error(function(data, status, headers, config) {
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
+            console.log("AJAX Error.");
           });
     }
     init();
+    
+    $scope.addData = function(){
+        //console.log($scope.data.inputText);
+        $http({
+            method: 'POST', 
+            url: 'dbcall/adddata.php',
+            data : { 
+                text : $scope.data.inputText,
+                fontype : "Helvetica", 
+			    color :"#FFFFFF", 
+			    size : 13,
+                posx : $scope.positionx,
+                posy : $scope.positiony
+            }
+        }).
+          success(function(data, status, headers, config) {
+              // call back add data
+             // $scope.data = data;
+          }).
+          error(function(data, status, headers, config) {
+            console.log("AJAX Error.");
+          });
+    }
     
     $scope.positionx = 0 ; 
     $scope.positiony = 0 ;
@@ -36,12 +55,6 @@ toiletApp.controller("toiletController", function($scope,$http) {
         //console.log($scope.data);
 	}
     
-//    $scope.updatePosition = function(event, ui){
-//        $scope.positionx = ui.position.left;
-//        $scope.positiony = ui.position.top;
-//        $scope.$apply();
-//    }
-
 });
 
 //dragMe directive 
