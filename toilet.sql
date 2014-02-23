@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 22, 2014 at 10:23 PM
+-- Generation Time: Feb 22, 2014 at 10:26 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.9
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `toilet`
 --
-CREATE DATABASE IF NOT EXISTS `toilet` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `toilet`;
 
 -- --------------------------------------------------------
 
