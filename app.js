@@ -12,6 +12,9 @@ toiletApp.controller("toiletController", function($scope,$modal,$http) {
           error(function(data, status, headers, config) {
               console.log("AJAX Error.");
           });
+        
+        $scope.positionx = ($(window).width()/2) ; 
+        $scope.positiony = ($(window).height()/2) ;
     }
     init();
     
@@ -22,7 +25,7 @@ toiletApp.controller("toiletController", function($scope,$modal,$http) {
     $scope.addData = function(showNoti){
         
         if($scope.isSaved){
-            //update istead of save
+            //update instead of save
             $scope.updateData(true);
             return;
         }
@@ -31,7 +34,7 @@ toiletApp.controller("toiletController", function($scope,$modal,$http) {
             $scope.failNotiModal();
             return;
         }
-
+        
         $http({
             method: 'POST', 
             url: 'dbcall/adddata.php',
@@ -71,7 +74,7 @@ toiletApp.controller("toiletController", function($scope,$modal,$http) {
               if(showNoti)$scope.successNotiModal();
         }).
         error(function(data, status, headers, config) {
-            console.log("AJAX Error.");
+              console.log("AJAX Error.");
         });        
     }
     
@@ -101,8 +104,7 @@ toiletApp.controller("toiletController", function($scope,$modal,$http) {
         });
     }
     
-    $scope.positionx = 0 ; 
-    $scope.positiony = 0 ;
+    //TODO : innitail as the center of the screen.
 	
 //	$scope.saveText = function(){
 //        
