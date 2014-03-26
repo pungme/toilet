@@ -12,7 +12,7 @@
 			while($rec = mysql_fetch_assoc($result)){
 				$arr[] = $rec;
 			}
-			$jsonresult = JEncode($arr); //encode JSON
+			$jsonresult = JEncode($arr);
 			echo $jsonresult;
 		} else {
 			echo '{}';

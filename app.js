@@ -1,4 +1,5 @@
 //main toilet app
+//TODO : add option to adjust text size !
 
 var toiletApp = angular.module("toiletApp",['ui.bootstrap']);
 
