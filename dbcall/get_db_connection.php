@@ -1,4 +1,15 @@
+
 <?php
+//$dbhost = 'localhost';
+//$dbuser = 'pungme5_admin';
+//$dbpass = '*********';
+//$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+//
+//if(! $conn ){
+//  die('Could not connect: ' . mysql_error());
+//}
+//
+//mysql_select_db("pungme5_toilet");
 
 $dbhost = 'localhost';
 $dbuser = 'root';
@@ -9,7 +20,7 @@ if(! $conn ){
   die('Could not connect: ' . mysql_error());
 }
 
-mysql_select_db("toilet");
+mysql_select_db("pungme5_toilet");
 
 	function JEncode($arr){
 		if (version_compare(PHP_VERSION,"5.2","<"))

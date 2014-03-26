@@ -18,12 +18,13 @@ toiletApp.controller("toiletController", function($scope,$modal,$http) {
     }
     init();
     
+    
     $scope.isSaved = false;
     $scope.textId = null;
     
     //This handle save data
     $scope.addData = function(showNoti){
-        
+        console.log($scope.font);
         if($scope.isSaved){
             //update instead of save
             $scope.updateData(true);
@@ -40,15 +41,16 @@ toiletApp.controller("toiletController", function($scope,$modal,$http) {
             url: 'dbcall/adddata.php',
             data : { 
                 text : $scope.data.inputText,
-                fontype : "Helvetica",  // all this 3 still mockup
+                font : $scope.font.fontfamily,
 			    color :"#FFFFFF", 
-			    size : 13,
+			    size : 18,
                 posx : $scope.positionx,
                 posy : $scope.positiony
             }
         }).
         success(function(data, status, headers, config) {
               $scope.isSaved = true;
+              console.log(data);
               $scope.textId = data;
              if(showNoti)$scope.successNotiModal();
         }).
@@ -62,8 +64,11 @@ toiletApp.controller("toiletController", function($scope,$modal,$http) {
             method: 'POST', 
             url: 'dbcall/updatedata.php',
             data : { 
-                id : $scope.textId,
+                //id seems to have somthing wrong
+                id : parseInt($scope.textId),
                 text : $scope.data.inputText,
+                font : $scope.font.fontfamily,
+                size : 18,
                 posx : $scope.positionx,
                 posy : $scope.positiony
             }
@@ -104,21 +109,17 @@ toiletApp.controller("toiletController", function($scope,$modal,$http) {
         });
     }
     
-    //TODO : innitail as the center of the screen.
-	
-//	$scope.saveText = function(){
-//        
-//        if(!$scope.data.inputText)return; //TODO: 
-//		var data = {
-//			text: $scope.data.inputText,
-//			font : "Helvetica",
-//			color :"#FFFFFF", 
-//			size : 13
-//		}	
-//		$scope.data.push(data);
-//        //console.log($scope.data);
-//	}
-    
+    $scope.fonts =[
+        {fontid : 1,fontfamily: 'Sue Ellen Francisco'},
+        {fontid : 2,fontfamily: 'Montez'},
+        {fontid : 3,fontfamily: 'Bad Script'},
+        {fontid : 4,fontfamily: 'Waiting for the Sunrise'},
+        {fontid : 5,fontfamily: 'Gochi Hand'},
+        {fontid : 6,fontfamily: 'Dawning of a New Day'},
+        {fontid : 7,fontfamily: 'Over the Rainbow'}
+    ]
+    //This set default font to the first choice
+    $scope.font = $scope.fonts[0];
 });
 
 //dragMe directive 
@@ -135,7 +136,7 @@ toiletApp.directive('dragMe', function() {
         }],
         
 		link: function(scope, elem, attr, ctrl) {
-			elem.draggable({
+			elem.draggable({ // a call to JQueryUI 
                 drag: function( event, ui ) {
                     scope.updatePosition(event, ui); // todo : remove this.
                 },
@@ -149,7 +150,7 @@ toiletApp.directive('dragMe', function() {
                     } 
                     //everytime you stop we update data
                 }
-            }); // a call to JQueryUI 
+            }); 
 		}
 	};
 });

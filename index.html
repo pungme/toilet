@@ -4,9 +4,9 @@
 	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="theme.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>      
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>      
     <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular-animate.js"></script>
     <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
 	<script src="app.js" > </script>
@@ -19,29 +19,38 @@
 			<form class="form-inline">
 			     <label> What's on your mind ? :</label> 
 			     <input type="text" maxlength="120" class="form-control"  ng-model="data.inputText"> 
-			    <button type="button" class="btn btn-primary" ng-click="addData(true)">Save</button> 
-                 <b id="draggable" class="display-text" drag-me xpos="positionx" ypos="positiony">{{ data.inputText }}</b>
+			    <button type="button" class="btn btn-primary" ng-click="addData(true)">Save</button>
+                
+                <select class="form-control" 
+                        ng-model="font" 
+                        ng-options="item.fontfamily for item in fonts"
+                >
+                </select>
+                
+                 <b id="draggable" 
+                    class="display-text" 
+                    style="font-family :{{font.fontfamily}} ;left: {{positionx}}; top : {{positiony}};" 
+                    drag-me xpos="positionx" 
+                    ypos="positiony">
+                        {{ data.inputText }}
+                </b>
+                
                  <label class="pull-right">position : 
                  <b>{{positionx + "," + positiony }}</b>
                  </label>
 			</form>
         
-<!--
-		<table class="table table-hover">
-			<tr ng-repeat="text in data">
-                <td> {{text.id}} </td>
-				<td> {{text.text}} </td>
-				<td> {{text.font}} </td>
-				<td> {{text.color}} </td>
-				<td> {{text.size}} </td>
-                <td> {{text.posx}} </td>
-                <td> {{text.posy}} </td>
-			</tr>
-		</table>
--->
-        
+        <!-- Actually we should do the css injection here.. does angularJS provide the easy way for this ?-->
         <div ng-repeat="text in data">
-            <b style="top : {{text.posy}}px; left : {{text.posx}}px ; position : absolute"> {{text.text}} </b>
+            <b style="
+                      font-size: {{text.size}}px; 
+                      top : {{text.posy}}px; 
+                      left : {{text.posx}}px ; 
+                      position : absolute;
+                      font-family : {{text.font}};
+                    "> 
+                {{text.text}} 
+            </b>
         </div>
 
         
