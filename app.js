@@ -149,7 +149,6 @@ toiletApp.directive('dragMe', function() {
                     } else {
                         scope.addData(false);
                     } 
-                    //everytime you stop we update data
                 }
             }); 
 		}
