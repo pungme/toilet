@@ -4,8 +4,7 @@
 var toiletApp = angular.module("toiletApp",['ui.bootstrap']);
 
 toiletApp.controller("toiletController", function($scope,$modal,$http) {
-    var init = function(){ //get data from server
-        //init component
+    var init = function(){ 
         $http({method: 'GET', url: 'dbcall/getdata.php'}).
           success(function(data, status, headers, config) {
               $scope.data = data;
@@ -23,11 +22,9 @@ toiletApp.controller("toiletController", function($scope,$modal,$http) {
     $scope.isSaved = false;
     $scope.textId = null;
     
-    //This handle save data
     $scope.addData = function(showNoti){
         console.log($scope.font);
         if($scope.isSaved){
-            //update instead of save
             $scope.updateData(true);
             return;
         }
@@ -65,7 +62,6 @@ toiletApp.controller("toiletController", function($scope,$modal,$http) {
             method: 'POST', 
             url: 'dbcall/updatedata.php',
             data : { 
-                //id seems to have somthing wrong
                 id : parseInt($scope.textId),
                 text : $scope.data.inputText,
                 font : $scope.font.fontfamily,
@@ -119,7 +115,6 @@ toiletApp.controller("toiletController", function($scope,$modal,$http) {
         {fontid : 6,fontfamily: 'Dawning of a New Day'},
         {fontid : 7,fontfamily: 'Over the Rainbow'}
     ]
-    //This set default font to the first choice
     $scope.font = $scope.fonts[0];
 });
 
@@ -127,7 +122,6 @@ toiletApp.controller("toiletController", function($scope,$modal,$http) {
 toiletApp.directive('dragMe', function() {
 	return {
 		restrict: 'A',
-        //Should directive has their own controller ? 
         controller: ['$scope', '$http', function($scope, $http) {
             $scope.updatePosition = function(event, ui) {
               $scope.positionx = ui.position.left;
