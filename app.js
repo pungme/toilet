@@ -75,6 +75,7 @@ toiletApp.controller("toiletController", function($scope,$modal,$http) {
             }
         }).
         success(function(data, status, headers, config) {
+            // TODO: call back on
               $scope.isSaved = true;
               $scope.textId = data;
               if(showNoti)$scope.successNotiModal();
@@ -89,7 +90,7 @@ toiletApp.controller("toiletController", function($scope,$modal,$http) {
           templateUrl: 'noti/notificationSuccess.html',
           controller: ModalInstanceCtrl,
           windowClass: 'app-modal-window',
-          resolve: {
+          resolve: { 
             items: function () {
               return $scope.items;
             }
@@ -149,7 +150,7 @@ toiletApp.directive('dragMe', function() {
                     } else {
                         scope.addData(false);
                     } 
-                    //everytime you stop we update data
+
                 }
             }); 
 		}
