@@ -144,10 +144,6 @@ toiletApp.directive('dragMe', function() {
                     } else {
                         scope.addData(false);
                     } 
-<<<<<<< HEAD
-
-=======
->>>>>>> FETCH_HEAD
                 }
             }); 
 		}
