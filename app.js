@@ -132,9 +132,9 @@ toiletApp.directive('dragMe', function() {
         }],
         
 		link: function(scope, elem, attr, ctrl) {
-			elem.draggable({ // a call to JQueryUI 
+			elem.draggable({ 
                 drag: function( event, ui ) {
-                    scope.updatePosition(event, ui); // todo : remove this.
+                    scope.updatePosition(event, ui); 
                 },
                 stop: function (event, ui) {
                     scope.updatePosition(event, ui);
