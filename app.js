@@ -119,7 +119,7 @@ toiletApp.controller("toiletController", function($scope,$modal,$http) {
     $scope.font = $scope.fonts[0];
 });
 
-//dragMe directive 
+//draggable directive 
 toiletApp.directive('dragMe', function() {
 	return {
 		restrict: 'A',
